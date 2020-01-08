@@ -1,4 +1,10 @@
 
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import org.junit.Assert;
 
 import cucumber.api.java.en.Given;
@@ -72,5 +78,40 @@ public class LearnCucumber {
 	public void theCounterMultiplicatedByValueWillBe(int arg1) throws Throwable {
 		Assert.assertNotEquals(arg1, multiplication);
 	}
+	
+	Date delivery = new Date();
+	
+	@Given("^that the delivery due date is in (\\d+)/(\\d+)/(\\d+)$")
+	public void thatTheDeliveryDueDateIsIn(int day, int month, int year) throws Throwable {
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(Calendar.DAY_OF_MONTH, day);
+		calendar.set(Calendar.MONTH, month -1 ); //no java o mes começa a contar de 0
+		calendar.set(Calendar.YEAR, year);
+		
+		delivery = calendar.getTime();
+	   
+	}
+
+	@When("^the package delay (\\d+) (.+)$")
+	public void thePackageDelayDays(int arg1, String time) throws Throwable {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(delivery);
+		if(time.equals("days")){
+			calendar.add(Calendar.DAY_OF_MONTH, arg1);
+		}
+		if(time.equals("months")){
+			calendar.add(Calendar.MONTH, arg1);
+		}
+		delivery = calendar.getTime();
+	}
+
+	@Then("^the delivery will be done in (\\d{2}\\/\\d{2}\\/\\d{4})$")
+	public void theDeliveryWillBeDoneIn(String date) throws Throwable {
+	    DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+	    String formatedDate = format.format(delivery);
+	    Assert.assertEquals(date, formatedDate);
+	}
+	
+	
 
 }

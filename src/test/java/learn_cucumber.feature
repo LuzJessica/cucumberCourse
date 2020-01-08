@@ -21,6 +21,22 @@ Scenario: Should increment counter
 	Then the counter divided by value will be 3
 	Then the counter multiplicated by value will be 90
 	
+Scenario: Should calculate delivery due date
+
+	Given that the delivery due date is in 05/04/2018
+	When the package delay 2 days
+	Then the delivery will be done in 07/04/2018
+	
+Scenario: Should calculate delivery due date in China
+
+	Given that the delivery due date is in 05/04/2018
+	When the package delay 2 months
+	Then the delivery will be done in 05/06/2018
+	
+	
+
+
+	
 
 	
 	
