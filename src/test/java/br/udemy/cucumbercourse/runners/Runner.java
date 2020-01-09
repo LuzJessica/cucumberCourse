@@ -8,6 +8,8 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+		features = "/Users//user//Documents//particularDevs//CursoCucumber//src//test//resources//features",
+		glue = "br.cucumbercourse.steps",
 		plugin = "pretty",
 		monochrome = true,
 		snippets = SnippetType.CAMELCASE
