@@ -10,6 +10,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		features = "/Users//user//Documents//particularDevs//CursoCucumber//src//test//resources//features",
 		glue = "br.cucumbercourse.steps",
+		tags = "~@ignored",
 		plugin = "pretty",
 		monochrome = true,
 		snippets = SnippetType.CAMELCASE

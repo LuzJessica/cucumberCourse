@@ -1,7 +1,9 @@
+@This
 Feature: Learn Cucumber
 	As a student
 	I want to learn how to use Cucumber
 	So I can automate acceptance scenarios
+
 
 Scenario: Should execute specification
 
@@ -20,7 +22,8 @@ Scenario: Should increment counter
 	Then the counter decremented value will be 10
 	Then the counter divided by value will be 3
 	Then the counter multiplicated by value will be 90
-	
+
+@This	
 Scenario: Should calculate delivery due date
 
 	Given that the delivery due date is in 05/04/2018
@@ -50,6 +53,7 @@ Scenario: Shuould reuse the "Given" steps from previous scenario
 	Given that the passenger name is "Cicrano de Olivera"
 	Given that the passenger telephone is 9888-8888
 	
+@ignored	
 Scenario: Should deny all "Given" steps from previously scenarios
 
 	Given that the ticket is CD123
