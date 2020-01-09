@@ -7,6 +7,7 @@ import java.util.Date;
 
 import org.junit.Assert;
 
+import cucumber.api.Transform;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -81,14 +82,11 @@ public class LearnCucumber {
 	
 	Date delivery = new Date();
 	
-	@Given("^that the delivery due date is in (\\d+)/(\\d+)/(\\d+)$")
-	public void thatTheDeliveryDueDateIsIn(int day, int month, int year) throws Throwable {
-		Calendar calendar = Calendar.getInstance();
-		calendar.set(Calendar.DAY_OF_MONTH, day);
-		calendar.set(Calendar.MONTH, month -1 ); //no java o mes começa a contar de 0
-		calendar.set(Calendar.YEAR, year);
+	@Given("^that the delivery due date is in (.*)$")
+	public void thatTheDeliveryDueDateIsIn(@Transform(DateConverter.class)Date date) throws Throwable {
 		
-		delivery = calendar.getTime();
+		
+		delivery = date;
 	   
 	}
 
@@ -117,8 +115,8 @@ public class LearnCucumber {
 	   
 	}
 
-	@Given("^that the ticket value is R\\$ (\\d+),(\\d+)$")
-	public void thatTheTicketValueIsR$(int arg1, int arg2) throws Throwable {
+	@Given("^that the ticket value is R\\$ (.*)$")
+	public void thatTheTicketValueIsR$(Double value) throws Throwable {
 	    
 	}
 
