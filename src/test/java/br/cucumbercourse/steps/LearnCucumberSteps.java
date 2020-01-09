@@ -1,3 +1,4 @@
+package br.cucumbercourse.steps;
 
 
 import java.text.DateFormat;
@@ -7,13 +8,14 @@ import java.util.Date;
 
 import org.junit.Assert;
 
+import br.cucumbercourse.converters.DateConverter;
 import cucumber.api.Transform;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 
-public class LearnCucumber {
+public class LearnCucumberSteps {
 	
 	@Given("^that I created the file correctly$")
 	public void thatICreatedTheFileCorrectly() throws Throwable {
@@ -84,10 +86,7 @@ public class LearnCucumber {
 	
 	@Given("^that the delivery due date is in (.*)$")
 	public void thatTheDeliveryDueDateIsIn(@Transform(DateConverter.class)Date date) throws Throwable {
-		
-		
 		delivery = date;
-	   
 	}
 
 	@When("^the package delay (\\d+) (.+)$")
