@@ -112,6 +112,36 @@ public class LearnCucumber {
 	    Assert.assertEquals(date, formatedDate);
 	}
 	
+	@Given("^that the( special)? ticket is A.(\\d{3})$")
+	public void thatTheTicketIsAF(String type,int arg2) throws Throwable {
+	   
+	}
+
+	@Given("^that the ticket value is R\\$ (\\d+),(\\d+)$")
+	public void thatTheTicketValueIsR$(int arg1, int arg2) throws Throwable {
+	    
+	}
+
+	@Given("^that the passenger name is \"(.{5,20})\"$")
+	public void thatThePassengerNameIs(String arg1) throws Throwable {
+	    
+	}
+
+	@Given("^that the passenger telephone is 9(\\d{3})-(\\d{4})$")
+	public void thatThePassengerTelephoneIs(int arg1, int arg2) throws Throwable {
+	    
+	}
+
+	@When("^create the steps$")
+	public void createTheSteps() throws Throwable {
+	    
+	}
+
+	@Then("^the test will work$")
+	public void theTestWillWork() throws Throwable {
+	    
+	}
+	
 	
 
 }
