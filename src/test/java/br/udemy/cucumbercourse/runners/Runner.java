@@ -8,9 +8,9 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "/Users//user//Documents//particularDevs//CursoCucumber//src//test//resources//features",
+		features = "/Users//user//Documents//particularDevs//CursoCucumber//src//test//resources//features//rentalStore.feature",
 		glue = "br.cucumbercourse.steps",
-		tags = "~@ignored",
+		tags = "@ToDo",
 		plugin = "pretty",
 		monochrome = true,
 		snippets = SnippetType.CAMELCASE
