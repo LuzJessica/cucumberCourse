@@ -11,6 +11,7 @@ import org.junit.Assert;
 
 import br.cucumbercourse.entities.Movie;
 import br.cucumbercourse.entities.RentNote;
+import br.cucumbercourse.entities.RentType;
 import br.cucumbercourse.services.RentService;
 import br.cucumbercourse.utils.DateUtils;
 import cucumber.api.java.en.Given;
@@ -23,7 +24,7 @@ public class RentalStoreSteps {
 	private RentService rent = new RentService();
 	private RentNote rentNote;
 	private String error;
-	private String rentType;
+	private RentType rentType;
 	
 	@Given("^a movie with (\\d+) units in stock$")
 	public void aMovieWithUnitsInStock(int arg1) throws Throwable {
@@ -64,7 +65,7 @@ public class RentalStoreSteps {
 
 	@Given("^the rent type is extended$")
 	public void theRentTypeIsExtended() throws Throwable {
-		rentType = "extended";
+		rentType = rentType.EXTENDED;
 	}
 
 	@Then("^the return date will be in (\\d+) days?$")
@@ -86,7 +87,12 @@ public class RentalStoreSteps {
 	
 	@Given("^the rent type is common$")
 	public void theRentTypeIsCommon() throws Throwable {
-		rentType = "common";
+		rentType = rentType.COMMON;
+	}
+	
+	@Given("^the rent type is weekly$")
+	public void theRentTypeIsWeekly() throws Throwable {
+		rentType = rentType.WEEKLY;
 	}
 
 }
