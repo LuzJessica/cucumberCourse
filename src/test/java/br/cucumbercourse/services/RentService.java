@@ -16,7 +16,7 @@ public class RentService {
 		RentNote rentNote = new RentNote();
 		switch (rentType) {
 		case COMMON:
-			rentNote.setRentPrice(movie.getPrice() * 1);
+			rentNote.setRentPrice(movie.getPrice());
 			rentNote.setReturnDate(DateUtils.obtaingData(1));
 			rentNote.setPontuation(1);			
 			break;
@@ -30,11 +30,7 @@ public class RentService {
 			rentNote.setReturnDate(DateUtils.obtaingData(7));
 			rentNote.setPontuation(3);	
 			break;
-		default:
-			break;
 		}
-		
-		
 		movie.setStock(movie.getStock() - 1);
 		return rentNote;
 

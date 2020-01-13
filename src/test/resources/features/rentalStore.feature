@@ -4,8 +4,8 @@ Feature: Rental Store
 	I want to insert movies rent
 	To manage prices and return dates
 
-@ToDo	
-Scenario Outline:
+
+Scenario Outline: Should give conditions conform rent type
 
 	Given a movie with 2 units in stock
 		And that the rent price is R$ <price>
@@ -24,7 +24,18 @@ Examples:
 |   5   |  weekly  |     15    |   7  |     3      |
 	
 
-@ToDo
+Scenario: Should rent a movie with success
+	
+		Given a movie
+		| stock | 2      |
+		| price | 3      |
+		| rentType | common | 
+		When rent
+		Then the rent price will be R$ 3
+		And the return date will be in 1 day
+		And the stock of movie will be 1 unit 
+		
+
 Scenario: Should not rent movies without stock
 	
 		Given a movie with 0 units in stock
