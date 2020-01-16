@@ -1,4 +1,4 @@
-@This
+@unitTests
 Feature: Learn Cucumber
 	As a student
 	I want to learn how to use Cucumber

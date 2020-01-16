@@ -1,3 +1,4 @@
+@unitTests
 Feature: Rental Store
 
 	As a user
